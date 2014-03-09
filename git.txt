@@ -1,0 +1,2 @@
+# Get full information about changes in merge commits
+git log -p -m --first-parent

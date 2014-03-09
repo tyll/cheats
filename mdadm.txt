@@ -1,0 +1,9 @@
+Raid1/Mirror
+
+CentOS6:
+Boot-Device:
+mdadm --create /dev/md/$HOSTNAME_$NAME --metadata=0.90 --level=mirror --raid-devices=2 /dev/sda1 /dev/sdb1
+
+* --metadata=0.90 -> For devices accessible by grub, otherwise 1.2 is good, too
+* The naming (/dev/md/$HOSTNAME_$NAME) can be arbitrary, it might not even matter.
+* The used devices come at the end

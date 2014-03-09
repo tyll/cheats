@@ -1,0 +1,2 @@
+Info about install package:
+dpkg -l $package

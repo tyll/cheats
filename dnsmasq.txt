@@ -1,0 +1,17 @@
+# DHCP, address only:
+
+dnsmasq
+--conf-file= --no-hosts --no-resolv --no-daemon --user=nobody --group=nobody --port=0 --bind-interfaces --interface eth0 --dhcp-range=192.168.123.2,192.168.123.254,255.255.255.0,192.168.123.255,2 --dhcp-option=3, --dhcp-option=6,
+
+dhcp-option=3 -> default gateway
+dhcp-option=6 -> Namserver
+--port=0 -> DNS Forward disabled (port 0 für DNS)
+
+TFTP Options:
+--enable-tftp --tftp-root=/tmp/tftpboot --dhcp-boot=pxelinux.0
+
+Quick network: Local DNS/DNSMASQ Host: 192.168.23.7
+dnsmasq --conf-file= --no-daemon --no-hosts --user=nobody --group=nobody --log-queries --port=53 --bind-interfaces --interface eth0 --except-interface lo --dhcp-range=192.168.23.100,192.168.23.200,255.255.255.0,192.168.23.255,2 --dhcp-option=3,192.168.23.7 --dhcp-option=6,192.168.23.7
+
+# Static DNS only: (Answer every request with 127.0.0.1)
+/usr/sbin/dnsmasq --conf-file= --no-hosts --no-resolv --no-daemon --user=nobody --group=nogroup --bind-interfaces --listen-address=127.0.0.1 --log-queries --address '/#/127.0.0.1'

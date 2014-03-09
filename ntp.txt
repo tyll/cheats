@@ -1,0 +1,3 @@
+genkey:
+ntp-keygen -m 2048 -s example.com -c RSA-SHA1 -C aes-128-cbc
+http://www.eecis.udel.edu/~mills/ntp/html/authentic.html#symm

@@ -1,0 +1,2 @@
+# Minimal export:
+gpg --export --armor --export-options export-minimal $KEYID_or_USERID

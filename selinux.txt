@@ -1,0 +1,8 @@
+# Search for recent AVC messages
+ausearch -m avc -ts recent
+
+# Get information about selinus type
+sesearch -ASCT -d -t httpd_sys_content_rw_t
+
+# Trigger a AVC message (httpd_t type cannot be set):
+touch /tmp/foo; chcon -t httpd_t /tmp/foo

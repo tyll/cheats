@@ -1,0 +1,4 @@
+/sbin/ip link set dev lo up
+/sbin/ip addr add 192.168.0.2/24 broadcast + dev eth0
+/sbin/ip link set dev eth0 up
+/sbin/ip route add default via 192.168.0.1

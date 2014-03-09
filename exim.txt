@@ -1,0 +1,11 @@
+# Show queue:
+exim -bp
+
+# Re-send single mail from queue:
+exim -M $mailid
+
+# Re-send all mails from queue:
+exiqgrep -i | xargs exim -M
+
+# Test mail rewrite:
+exim -brw root@localhost

@@ -1,0 +1,3 @@
+Gather facts about a host:
+
+ansible -m setup $host

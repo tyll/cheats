@@ -1,0 +1,15 @@
+# Process list (works with psexec)
+tasklist -v
+
+# user info (with /domain for domain info)
+net user $USERNAME
+
+# group info (with /domain for domain info)
+net group $GROUP
+
+# Anonymous FTP client with non-default port:
+(echo open HOST 2121 && get file.exe) | ftp -A
+
+# Convert umlauts/encoding for windows console, i.e. for group
+# 'Domänen-Admins':
+recode utf8..CP850 < UTF-file.bat > Windows.bat

@@ -1,0 +1,5 @@
+serve() {
+  port="${1:-3000}"
+  bind="${2:-0.0.0.0}"
+  ruby -r webrick -e "m = WEBrick::HTTPUtils::DefaultMimeTypes; m.store 'js', 'application/javascript'; s = WEBrick::HTTPServer.new(:Port => $port, :BindAddress => \"$bind\", :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
+}

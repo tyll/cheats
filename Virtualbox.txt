@@ -1,0 +1,2 @@
+# Clone with copy on write:
+VBoxManage clonevm "${SOURCE_VM}" --mode machine --options link --name "${SOURCE_VM-Clone}" --basefolder "$HOME/.VirtualBox/Clones/" --register --snapshot "${SNAPSHOT}"

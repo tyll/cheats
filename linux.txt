@@ -1,0 +1,2 @@
+# lookt at first linux console:
+setterm -term linux -dump "1" -file /proc/self/fd/1
