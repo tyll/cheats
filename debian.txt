@@ -1,2 +1,17 @@
 Info about install package:
 dpkg -l $package
+
+# auto-apt: Installs all required packages as needed
+apt-get install auto-apt
+sudo auto-apt update
+auto-apt run
+
+# Disable a service (Do not use remove instead of disable, because then
+# update-rc.d defaults $service enables $service again)
+update-rc.d disable $service
+
+# Set policies for initscripts: see:
+man invoke-rc.d
+
+# List postinst etc scripts:
+ls -la /var/lib/dpkg/info/$package.*
