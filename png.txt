@@ -1,0 +1,2 @@
+# Create big png images:
+ppmmake yellow 50000 50000 | pnmtopng -compression 9 > big-50000.png
