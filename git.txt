@@ -1,2 +1,5 @@
 # Get full information about changes in merge commits
 git log -p -m --first-parent
+
+# Get name of remote branch for current branch
+git rev-parse --abbrev-ref --symbolic-full-name "@{u}"

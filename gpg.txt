@@ -1,2 +1,5 @@
 # Minimal export:
 gpg --export --armor --export-options export-minimal $KEYID_or_USERID
+
+# caff
+export PERL_MAILERS="sendmail:/usr/bin/msmtp"
