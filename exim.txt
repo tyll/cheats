@@ -9,3 +9,9 @@ exiqgrep -i | xargs exim -M
 
 # Test mail rewrite:
 exim -brw root@localhost
+
+# Test mailserver IPs (where E-Mails will be accepted)
+exim -bh 127.0.0.1
+
+# Test mail receivers:
+exim -bt root@example.com
