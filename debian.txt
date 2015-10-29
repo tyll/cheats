@@ -15,3 +15,41 @@ man invoke-rc.d
 
 # List postinst etc scripts:
 ls -la /var/lib/dpkg/info/$package.*
+
+# debconf
+## get configuration
+apt-get install debconf-utils
+debconf-get-selections
+## set selections
+echo $OUTPUT_FROM_DEBCONF_GET_SELECTIONS | debconf-set-selections
+
+# Show list of available packages:
+apt-cache madison $PACKAGE
+
+# Downgrade package
+apt-get install $PACKAGE=$VERSION
+
+# Show available updgrades
+apt-get -u -s upgrade
+apt-get --show-updgraded --simulate upgrade
+## Quiet:
+apt-get -u -s -q=2 upgrade
+apt-get --show-updgraded --simulate --quiet --quiet upgrade
+
+# Enable multiarch
+dkpg --add-architecture i386
+
+# Search for package containing a file
+dpkg-query -S $FILENAME
+
+# Show source mirror for package
+apt-cache policy $PACKAGENAME
+
+# Download source for package
+apt-get source $PACKAGENAME
+
+# Install build deps for package
+apt-get build-dep $PACKAGENAME
+
+# Fix "There is no public key available for the following key IDs:" errors
+apt-get install debian-keyring debian-archive-keyring
