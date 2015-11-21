@@ -1,8 +1,18 @@
-# Search for recent AVC messages
-ausearch -m avc -ts recent
+# Search for AVC/error messages
+ausearch -m avc,user_avc,selinux_err -ts recent
+ausearch -m avc,user_avc,selinux_err -ts today
+ausearch -m avc,user_avc,selinux_err -ts 11:01:00
 
 # Get information about selinus type
 sesearch -ASCT -d -t httpd_sys_content_rw_t
 
 # Trigger a AVC message (httpd_t type cannot be set):
 touch /tmp/foo; chcon -t httpd_t /tmp/foo
+
+# Make a type permissive/not permissive anymore:
+semanage permissive -a httpd_t
+semanage permissive -d httpd_t
+
+# Install a custom selinux module with semodule or semanage:
+semodule -i mymod.pp
+semanage module -a mymod.pp
