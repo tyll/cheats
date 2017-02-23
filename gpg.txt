@@ -3,3 +3,10 @@ gpg --export --armor --export-options export-minimal $KEYID_or_USERID
 
 # caff
 export PERL_MAILERS="sendmail:/usr/bin/msmtp"
+
+# Get cached key password from gpg2 agent with gdb
+gdb /usr/bin/gpg-agent $PID
+break agent_get_cache
+continue
+# use gpg2 for a private key operation to make gpg-agent hit the breakpoint
+finish
