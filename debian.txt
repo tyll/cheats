@@ -53,3 +53,17 @@ apt-get build-dep $PACKAGENAME
 
 # Fix "There is no public key available for the following key IDs:" errors
 apt-get install debian-keyring debian-archive-keyring
+
+# Find package that provides a filename:
+apt-file search $FILENAME
+
+# Create a repo
+# from dpkg-dev
+dpkg-scanpackages . /dev/null > Packages
+apt-ftparchive release . > Release
+gpg --armor --detach-sign Release
+
+gpg --export-options export-minimal --armor --export $KEYID  > till.key
+apt-key add till.key
+
+echo "deb file:/srv/debrepo ./" >> /etc/apt/sources
