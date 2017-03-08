@@ -48,6 +48,9 @@ apt-cache policy $PACKAGENAME
 # Download source for package
 apt-get source $PACKAGENAME
 
+# Download binary package
+apt-get download $PACKAGENAME
+
 # Install build deps for package
 apt-get build-dep $PACKAGENAME
 
