@@ -1,3 +1,3 @@
-# Match all messages in threads without answer from oneself that are older than
-# 3 months:
-!~(~Q) ~d >3m
+# Match all messages in threads without answer from oneself or mail from
+# oneself that are older than 24 months:
+!~(~Q | ~P | ~p) ~d >24m
